@@ -73,6 +73,37 @@
 .hidden {
   display: none; }
 
+.cursor {
+  position: absolute;
+  top: 40px;
+  z-index: 999;
+  width: 200px;
+  transform: translate(10px, -40px);
+  pointer-events: none;
+  transform: rotate(25deg); }
+  .cursor__hammer {
+    width: 100%; }
+
+.hit {
+  -webkit-animation: hit 0.2s ease-out infinite;
+  animation: hit 0.2s ease-out infinite; }
+
+@-webkit-keyframes hit {
+  0% {
+    transform: rotate(25deg); }
+  20% {
+    transform: rotate(-40deg); }
+  60% {
+    transform: rotate(-40deg); } }
+
+@keyframes hit {
+  0% {
+    transform: rotate(25deg); }
+  20% {
+    transform: rotate(-40deg); }
+  60% {
+    transform: rotate(-40deg); } }
+
 @-webkit-keyframes popUp {
   0% {
     top: 0px; }

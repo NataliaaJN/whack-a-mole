@@ -64,4 +64,3 @@ window.addEventListener('mousemove', (event) => {
     setTimeout(() => cursor.classList.remove('hit'), 100);
   });
 });
-//# sourceMappingURL=main.js.map
