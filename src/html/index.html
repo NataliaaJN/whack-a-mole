@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whac a mole</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="title">WHACK A MOLE</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Time left: <span class="js-timeLeft">20</span></h2>
+        <h2>Score: <span class="js-score">0</span></h2>
+      </section>
+      <section>
+        <button class="button playBtn js-playBtn">Play</button>
+        <button class="button stopBtn hidden js-stopBtn">Stop</button>
+      </section>
+      <div class="field">
+        <div class="field__gridContainer">
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole1 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer ">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole1 js-mole">
+              </div>
+            </div>
+            
+            
+          </div>
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole2 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole2 js-mole">
+              </div>
+            </div>
+          </div>
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole3 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole3 js-mole">
+              </div>
+            </div>
+          </div>
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole4 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole4 js-mole">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole5 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole5 js-mole">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole6 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole6 js-mole">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole7 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole7 js-mole">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole8 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole8 js-mole">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="field__gridContainer--partField">
+            <div class="field__gridContainer--partField--holeContainer">
+              <img
+              class="field__gridContainer--partField--holeContainer--hole hole hole9 js-hole"
+              src="../assets/images/dirtPile.png"
+            />
+              <div class="field__gridContainer--partField--holeContainer--moleContainer">
+                <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole9 js-mole">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <footer class="page__footer">
+      <small> &copy; 2021 </small>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
