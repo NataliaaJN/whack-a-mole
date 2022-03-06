@@ -17,13 +17,17 @@
       <h1 class="title">WHACK A MOLE</h1>
     </header>
     <main>
+      <section class="homepageModal js-homepageModal">
+        <button class="homepageModal__startGameBtn js-startBtn">Start the game</button>
+      </section>
+      <div class="countDown js-countDown"></div>
       <section>
         <h2>Time left: <span class="js-timeLeft">20</span></h2>
         <h2>Score: <span class="js-score">0</span></h2>
       </section>
       <section>
         <button class="button playBtn js-playBtn">Play</button>
-        <button class="button stopBtn hidden js-stopBtn">Stop</button>
+        <button class="button pauseBtn hidden js-pauseBtn">Pause</button>
       </section>
       <div class="field">
         <div class="field__gridContainer">
@@ -37,7 +41,6 @@
                 <img src="./assets/images/mole1.png" alt=""  class="field__gridContainer--partField--holeContainer--moleContainer--mole mole mole1 js-mole">
               </div>
             </div>
-            
             
           </div>
 
@@ -77,7 +80,6 @@
             </div>
           </div>
 
-
           <div class="field__gridContainer--partField">
             <div class="field__gridContainer--partField--holeContainer">
               <img
@@ -89,7 +91,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="field__gridContainer--partField">
             <div class="field__gridContainer--partField--holeContainer">
@@ -103,7 +104,6 @@
             </div>
           </div>
 
-
           <div class="field__gridContainer--partField">
             <div class="field__gridContainer--partField--holeContainer">
               <img
@@ -115,7 +115,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="field__gridContainer--partField">
             <div class="field__gridContainer--partField--holeContainer">
@@ -129,7 +128,6 @@
             </div>
           </div>
 
-
           <div class="field__gridContainer--partField">
             <div class="field__gridContainer--partField--holeContainer">
               <img
@@ -141,9 +139,16 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
+
+      <section class="modal hidden js-modal">
+        <h2 class="modal__gameOver">Game over!</h2>
+        <p class="modal__highScoreParagraph">High score: <span class="js-highScore">0</span></p>
+        <button class="modal__playAgainBtn">Play again</button>
+
+      </section>
+
       <div class="cursor  js-cursor">
         <img class="cursor__hammer" src="./assets/images/hammer.png" alt="">
       </div>

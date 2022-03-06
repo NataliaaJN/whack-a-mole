@@ -11,6 +11,29 @@
     // cursor: none;
     //cursor: url(../images/hammer-cursor.png), auto;
 }
+
+//     HOMEPAGE      //
+.homepageModal{
+position: fixed;
+z-index: 9999;
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: blue;
+&__startGameBtn{
+  font-size: 50px;
+  padding: 10px;
+  cursor: url(../images/hammer-cursor.png), auto;
+}
+}
+.modalClosed{
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Game zone
 .title {
     font-size: 32px;
     text-align: center;
@@ -109,6 +132,40 @@
             }
         }
     }
+}
+
+// Modal game over
+.modal{
+  cursor: url(../images/hammer-cursor.png), auto;
+  position: fixed;
+  z-index: 999;
+  // top: 35%;
+  // left: 25%;
+  top: 44%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // width: 50%;
+  // height: 50vh;
+  width: 20%;
+  height: 30vh;
+  background-color: rgb(251, 242, 190);
+  border: 10px solid rgb(255, 230, 0);
+  padding: 20px;
+
+  &__gameOver{
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  &__highScoreParagraph{
+    font-size: 20px;
+  }
+  &__playAgainBtn{
+    padding: 10px;
+    margin-top: 20px;
+  }
 }
 
 .hidden {
