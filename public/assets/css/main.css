@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.title {
+  font-size: 32px;
+  text-align: center; }
+
+.button {
+  margin-top: 3em;
+  text-align: center; }
+
+.playBtn {
+  padding: 15px 45px;
+  border: 1px solid black;
+  border-radius: 3px; }
+
+.stopBtn {
+  padding: 15px 45px;
+  border: 1px solid black;
+  border-radius: 3px; }
+
+.field {
+  width: 100%;
+  height: 90vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #a1d148; }
+  .field__gridContainer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    width: 600px;
+    height: 550px;
+    margin-top: 40px; }
+    .field__gridContainer--partField {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
+      position: relative;
+      width: 180px; }
+      .field__gridContainer--partField--holeContainer {
+        position: relative;
+        top: -60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 148px;
+        overflow-y: hidden; }
+        .field__gridContainer--partField--holeContainer--hole {
+          position: relative;
+          top: 102px;
+          z-index: 999;
+          width: 200px; }
+        .field__gridContainer--partField--holeContainer--moleContainer {
+          position: relative;
+          top: 0;
+          z-index: 0;
+          width: 125px; }
+          .field__gridContainer--partField--holeContainer--moleContainer--mole {
+            width: 100%; }
+      .field__gridContainer--partField .popUp {
+        -webkit-animation: popUp 3.3s ease-in;
+        animation: popUp 3.3s ease-in; }
+
+.hidden {
+  display: none; }
+
+@-webkit-keyframes popUp {
+  0% {
+    top: 0px; }
+  45% { }
+  50% { }
+  65% {
+    top: -120px; }
+  80% {
+    top: -120px; }
+  94% { }
+  95% { }
+  100% {
+    top: 0; } }
+
+@keyframes popUp {
+  0% {
+    top: 0px; }
+  45% { }
+  50% { }
+  65% {
+    top: -120px; }
+  80% {
+    top: -120px; }
+  94% { }
+  95% { }
+  100% {
+    top: 0; } }
+
+/*# sourceMappingURL=main.css.map */
