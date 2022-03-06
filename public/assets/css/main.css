@@ -5,8 +5,8 @@
 
 .homepageModal {
   position: fixed;
-  z-index: 9999;
-  width: 100vw;
+  z-index: 999;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -20,6 +20,18 @@
 .modalClosed {
   opacity: 0;
   pointer-events: none; }
+
+.countDown__page {
+  position: relative;
+  z-index: 998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: greenyellow; }
+  .countDown__page .countDown {
+    font-size: 200px; }
 
 .title {
   font-size: 32px;
@@ -62,31 +74,29 @@
       align-items: center;
       justify-items: center;
       position: relative;
-      width: 180px; }
+      width: 180px;
+      height: 148px;
+      overflow: hidden; }
       .field__gridContainer--partField--holeContainer {
-        position: relative;
-        top: -60px;
+        position: absolute;
+        top: 11px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        height: 148px;
-        overflow-y: hidden; }
+        height: 148px; }
         .field__gridContainer--partField--holeContainer--hole {
-          position: relative;
-          top: 102px;
-          z-index: 999;
+          z-index: 9;
           width: 200px; }
         .field__gridContainer--partField--holeContainer--moleContainer {
           position: relative;
-          top: 0;
+          top: 100px;
           z-index: 0;
           width: 125px; }
           .field__gridContainer--partField--holeContainer--moleContainer--mole {
             width: 100%; }
       .field__gridContainer--partField .popUp {
-        -webkit-animation: popUp 3.3s ease-in;
-        animation: popUp 3.3s ease-in; }
+        -webkit-animation: popUp 0.5s ease-in-out  both;
+        animation: popUp 0.5s ease-in-out  both; }
 
 .modal {
   cursor: url(../images/hammer-cursor.png), auto;
@@ -148,30 +158,14 @@
 
 @-webkit-keyframes popUp {
   0% {
-    top: 0px; }
-  45% { }
-  50% { }
-  65% {
-    top: -120px; }
-  80% {
-    top: -120px; }
-  94% { }
-  95% { }
+    transform: translateY(0); }
   100% {
-    top: 0; } }
+    transform: translateY(-100px); } }
 
 @keyframes popUp {
   0% {
-    top: 0px; }
-  45% { }
-  50% { }
-  65% {
-    top: -120px; }
-  80% {
-    top: -120px; }
-  94% { }
-  95% { }
+    transform: translateY(0); }
   100% {
-    top: 0; } }
+    transform: translateY(-100px); } }
 
 /*# sourceMappingURL=main.css.map */

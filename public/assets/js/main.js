@@ -6,9 +6,11 @@ const homepageModal = document.querySelector('.js-homepageModal');
 const startBtn = document.querySelector('.js-startBtn');
 
 // transition homepage to gamepage
+const countDownPage = document.querySelector('.js-countDown__page');
 const countDownParagraph = document.querySelector('.js-countDown');
 
 // gamepage
+const gamePage = document.querySelector('.js-gamePage');
 const scoreParagraph = document.querySelector('.js-score');
 //const timeLeft = document.querySelector('.js-timeLeft');
 const playBtn = document.querySelector('.js-playBtn');
@@ -19,7 +21,7 @@ const moles = document.querySelectorAll('.js-mole');
 
 const cursor = document.querySelector('.js-cursor');
 
-let timeLeft;
+let timeLeft = 20;
 let score = 0;
 
 // let lastHole;
@@ -34,81 +36,85 @@ const modal = document.querySelector('.js-modal');
 //     return getRandomHole(); // execute the function to get other hole (different from the last one)
 //   }
 
-
-
 const getRandomNumber = (max) => {
   return Math.ceil(Math.random() * max);
 };
 
-let hole;
-// Get the random hole through which the mole will appear
-const getRandomHole = () => {
-  let holeIndex = getRandomNumber(holes.length);
-  hole = holes[holeIndex];
+let mole;
+// Get the random mole that will appear
+const getRandomMole = () => {
+  let moleIndex = getRandomNumber(moles.length);
+  mole = moles[moleIndex];
   //return hole? para poder sacar lo demás a otra función
+  mole.classList.add('popUp');
 
-  // Appear the mole
-  const holeContainer = hole.parentNode;
-  const moleContainer = holeContainer.childNodes[3];
-  moleContainer.classList.add('popUp');
-
+  setTimeout(() => {
+    mole.classList.remove('popUp');
+  }, 500);
 };
+
 
 // run game
-const runGame = () =>{
+const runGame = () => {
   playBtn.classList.add('hidden');
   pauseBtn.classList.remove('hidden');
-  setInterval(getRandomHole, 700);
+  setInterval(getRandomMole, 700);
 };
-//setTimeout
 
 
 // start game
 // countdown
-let countdown;
-const countdownToPlay = (sec) => {
-  countdown = sec;
-  const countdownDiv = document.createElement('div');
-
-  if(countdown > 0){
+let countdown=3;
+const countdownToPlay = () => {
+  homepageModal.classList.add('hidden');
+  countDownParagraph.classList.remove('hidden');
+  // countdown = sec;
+  
+  if (countdown > 0) {
     countdown--;
-    countdownDiv.appendChild(countdown);
-  } else{
-    countdownDiv.classList.add('hidden');
+    countDownParagraph.innerHTML = countdown;
+    console.log(countDownParagraph);
+  } else {
+    countDownPage.classList.add('hidden');
+    gamePage.classList.remove('hidden');
+    runGame();
   }
 };
 
-setInterval(countdownToPlay, 2000);
 
 
 //       LISTENERS       //
 // Start game
-startBtn.addEventListener('click', () =>{
-  homepageModal.classList.add('modalClosed');
-  countdownToPlay(3);
-  timeLeft= 20;
-  score= 0;
-  runGame();
+startBtn.addEventListener('click', () => {
+  homepageModal.classList.add('hidden');
+  countDownPage.classList.remove('hidden');
+  setInterval(countdownToPlay, 1500);
+ // countdownToPlay();
+  timeLeft = 20;
+  score = 0;
+ 
 });
 
 // Run game
-playBtn.addEventListener('click', runGame());
+playBtn.addEventListener('click', runGame);
 
 // Pause game
 pauseBtn.addEventListener('click', () => {
-  clearInterval(runGame);
+  clearInterval(getRandomMole);
   playBtn.classList.remove('hidden');
   pauseBtn.classList.add('hidden');
 });
 
-// Move cursor
+//           MOVE CURSOR          //
 window.addEventListener('mousemove', (event) => {
   cursor.style.top = event.pageY - 60 + 'px';
-  cursor.style.left = event.pageX + 'px';
+  cursor.style.left = event.pageX- 75 + 'px';
 
-  window.addEventListener('click', ()=> {
+  // Hit mole
+  window.addEventListener('click', () => {
     cursor.classList.add('hit');
     setTimeout(() => cursor.classList.remove('hit'), 100);
   });
 });
+
 //# sourceMappingURL=main.js.map
