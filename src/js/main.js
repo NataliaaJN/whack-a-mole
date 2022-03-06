@@ -11,8 +11,8 @@ const countDownParagraph = document.querySelector('.js-countDown');
 
 // gamepage
 const gamePage = document.querySelector('.js-gamePage');
+const timeLeftParagraph = document.querySelector('.js-timeLeft');
 const scoreParagraph = document.querySelector('.js-score');
-//const timeLeft = document.querySelector('.js-timeLeft');
 const playBtn = document.querySelector('.js-playBtn');
 const pauseBtn = document.querySelector('.js-pauseBtn');
 
@@ -20,6 +20,11 @@ const holes = document.querySelectorAll('.js-hole');
 const moles = document.querySelectorAll('.js-mole');
 
 const cursor = document.querySelector('.js-cursor');
+
+// Game over
+const gameOverModal = document.querySelector('.js-gameOverModal');
+const finalScore = document.querySelector('.js-finalScore');
+
 
 let timeLeft = 20;
 let score = 0;
@@ -53,27 +58,45 @@ const getRandomMole = () => {
   }, 500);
 };
 
+// Get the time left
+const getTimeLeft = () => {
+  if (timeLeft > 0) {
+    timeLeft--;
+    timeLeftParagraph.innerHTML = timeLeft;
+  }
+};
+
+// Game over
+const gameOver = () => {
+  gameOverModal.classList.remove('hidden');
+  finalScore.innerHTML = score;
+};
 
 // run game
 const runGame = () => {
   playBtn.classList.add('hidden');
   pauseBtn.classList.remove('hidden');
-  setInterval(getRandomMole, 700);
+  //setInterval(getRandomMole, 700);
+  //setInterval(getTimeLeft, 1000);
+  getTimeLeft();
+  if (timeLeft > 0) {
+    getRandomMole();
+  } else {
+    gameOver();
+  }
 };
 
-
-// start game
+//         START GAME        //
 // countdown
-let countdown=3;
+let countdown = 3;
 const countdownToPlay = () => {
   homepageModal.classList.add('hidden');
   countDownParagraph.classList.remove('hidden');
   // countdown = sec;
-  
+
   if (countdown > 0) {
     countdown--;
     countDownParagraph.innerHTML = countdown;
-    console.log(countDownParagraph);
   } else {
     countDownPage.classList.add('hidden');
     gamePage.classList.remove('hidden');
@@ -81,18 +104,14 @@ const countdownToPlay = () => {
   }
 };
 
-
-
 //       LISTENERS       //
 // Start game
 startBtn.addEventListener('click', () => {
   homepageModal.classList.add('hidden');
   countDownPage.classList.remove('hidden');
   setInterval(countdownToPlay, 1500);
- // countdownToPlay();
-  timeLeft = 20;
+
   score = 0;
- 
 });
 
 // Run game
@@ -108,7 +127,7 @@ pauseBtn.addEventListener('click', () => {
 //           MOVE CURSOR          //
 window.addEventListener('mousemove', (event) => {
   cursor.style.top = event.pageY - 60 + 'px';
-  cursor.style.left = event.pageX- 75 + 'px';
+  cursor.style.left = event.pageX - 75 + 'px';
 
   // Hit mole
   window.addEventListener('click', () => {
