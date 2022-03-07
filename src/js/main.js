@@ -21,19 +21,24 @@ const moles = document.querySelectorAll('.js-mole');
 
 const cursor = document.querySelector('.js-cursor');
 
+// Pause game
+const pauseModal = document.querySelector('.js-pauseModal');
+const currentScore = document.querySelector('.js-currentScore');
+const currentTimeLeft = document.querySelector('.js-currentTimeLeft');
+const resumeGameBtn = document.querySelector('.js-resumeGameBtn');
+
 // Game over
 const gameOverModal = document.querySelector('.js-gameOverModal');
 const finalScore = document.querySelector('.js-finalScore');
+const playAgainBtn = document.querySelector('.js-playAgainBtn');
 
 
 let timeLeft = 20;
 let score = 0;
-
+let misses = 0;
 // let lastHole;
 // let highScore = 0;
 
-// game over modal
-const modal = document.querySelector('.js-modal');
 
 //          FUNCTIONS            //
 
@@ -52,10 +57,16 @@ const getRandomMole = () => {
   mole = moles[moleIndex];
   //return hole? para poder sacar lo demás a otra función
   mole.classList.add('popUp');
+  
+  mole.addEventListener('click', () =>{
+    score += 10;
+    console.log(score);
+    scoreParagraph.innerHTML = score;
+  });
 
   setTimeout(() => {
     mole.classList.remove('popUp');
-  }, 500);
+  }, 1100);
 };
 
 // Get the time left
@@ -74,6 +85,7 @@ const gameOver = () => {
 
 // run game
 const runGame = () => {
+  // si meto las clases en esta función, se me repiten con el setInterval
   playBtn.classList.add('hidden');
   pauseBtn.classList.remove('hidden');
   //setInterval(getRandomMole, 700);
@@ -85,6 +97,8 @@ const runGame = () => {
     gameOver();
   }
 };
+
+
 
 //         START GAME        //
 // countdown
@@ -104,6 +118,36 @@ const countdownToPlay = () => {
   }
 };
 
+// play again
+const playAgain = () => {
+  gameOverModal.classList.add('hidden');
+  timeLeft = 20;
+  score = 0;
+  //setInterval(countdownToPlay, 1000);
+  countdownToPlay();
+};
+
+// Pause game
+const pauseGame = () => {
+  //clearInterval(getRandomMole);
+  timeLeftParagraph.innerHTML = timeLeft;
+  playBtn.classList.remove('hidden');
+  pauseBtn.classList.add('hidden');
+  pauseModal.classList.remove('hidden');
+  currentScore.innerHTML = score;
+  currentTimeLeft.innerHTML = timeLeft;
+};
+
+// Resume game
+const resumeGame = () => {
+  playBtn.classList.add('hidden');
+  pauseBtn.classList.remove('hidden');
+  pauseModal.classList.add('hidden');
+  scoreParagraph.innerHTML = score;
+  timeLeftParagraph.innerHTML = timeLeft;
+  runGame();
+};
+
 //       LISTENERS       //
 // Start game
 startBtn.addEventListener('click', () => {
@@ -118,11 +162,14 @@ startBtn.addEventListener('click', () => {
 playBtn.addEventListener('click', runGame);
 
 // Pause game
-pauseBtn.addEventListener('click', () => {
-  clearInterval(getRandomMole);
-  playBtn.classList.remove('hidden');
-  pauseBtn.classList.add('hidden');
-});
+pauseBtn.addEventListener('click', pauseGame);
+
+// Resume game
+resumeGameBtn.addEventListener('click', resumeGame);
+
+// Play again
+playAgainBtn.addEventListener('click', playAgain);
+
 
 //           MOVE CURSOR          //
 window.addEventListener('mousemove', (event) => {

@@ -147,12 +147,20 @@
         </div>
       </section>
 
+      <section class="pauseModal hidden js-pauseModal">
+        <h2 class="pauseModal__pause">Pause</h2>
+        <p class="pauseModal__score">Score: <span class="js-currentScore">0</span></p>
+        <p class="pauseModal__currentTimeLeft">Time left: <span class="js-currentTimeLeft">0</span></p>
+        <button class="modal__resumeGameBtn js-resumeGameBtn">Resume game</button>
+
+      </section>
+
       <section class="modal hidden js-gameOverModal">
         <h2 class="modal__gameOver">Game over!</h2>
         <p class="modal__score">Score: <span class="js-finalScore">0</span></p>
         <!-- <p class="modal__misses">Misses: <span class="js-misses">0</span></p> -->
         <!-- <p class="modal__highScoreParagraph">High score: <span class="js-highScore">0</span></p> -->
-        <button class="modal__playAgainBtn">Play again</button>
+        <button class="modal__playAgainBtn js-playAgainBtn">Play again</button>
 
       </section>
 
