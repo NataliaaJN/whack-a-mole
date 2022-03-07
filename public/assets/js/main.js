@@ -35,7 +35,7 @@ const finalScore = document.querySelector('.js-finalScore');
 const playAgainBtn = document.querySelector('.js-playAgainBtn');
 const exitBtn = document.querySelector('.js-exitBtn');
 
-
+let visibleModal = false;
 let timeLeft = 20;
 let score = 0;
 let misses = 0;
@@ -112,21 +112,51 @@ const runGame = () => {
 //         START GAME        //
 // countdown
 let countdown = 3;
-const countdownToPlay = () => {
-  homepageModal.classList.add('hidden');
-  title.classList.add('hidden');
-  countDownParagraph.classList.remove('hidden');
-  // countdown = sec;
-
-  if (countdown > 0) {
+// countdown function
+const getCountdown = () => {
+  if (countdown > 0){
     countdown--;
     countDownParagraph.innerHTML = countdown;
-  } else {
-    countDownPage.classList.add('hidden');
-    gamePage.classList.remove('hidden');
-    logo.classList.remove('hidden');
-    runGame();
   }
+};
+
+
+const countdownToPlay = () => {
+  title.classList.add('hidden');
+homepageModal.classList.add('hidden');
+countDownParagraph.classList.remove('hidden');
+  
+  // countdown = sec;
+  while(countdown > 0) {
+    countDownParagraph.innerHTML = countdown;
+    let timeToWakeUp = new Date().getTime() + 1500;
+    while (new Date().getTime() <= timeToWakeUp) {}
+    countdown--;
+    // setInterval(getCountdown, 1500);
+  }
+  countDownPage.classList.add('hidden');
+  gamePage.classList.remove('hidden');
+  logo.classList.remove('hidden');
+  runGame();
+  // if (countdown > 0) {
+  //   setInterval(getCountdown, 1500);
+  //   // countdown--;
+  //   // countDownParagraph.innerHTML = countdown;
+  // } else {
+  //   countDownPage.classList.add('hidden');
+  //   gamePage.classList.remove('hidden');
+  //   logo.classList.remove('hidden');
+  //   runGame();
+  // }
+};
+
+// Start game
+const startGame = () => {
+  homepageModal.classList.add('hidden');
+  countDownPage.classList.remove('hidden');
+  // setInterval(countdownToPlay, 1500);
+  countdownToPlay();
+  score = 0;
 };
 
 // play again
@@ -168,13 +198,14 @@ const exitGame = () => {
 
 //       LISTENERS       //
 // Start game
-startBtn.addEventListener('click', () => {
-  homepageModal.classList.add('hidden');
-  countDownPage.classList.remove('hidden');
-  setInterval(countdownToPlay, 1500);
-
-  score = 0;
-});
+startBtn.addEventListener('click', startGame);
+// startBtn.addEventListener('click', () => {
+//   homepageModal.classList.add('hidden');
+//   countDownPage.classList.remove('hidden');
+//   // setInterval(countdownToPlay, 1500);
+//   countdownToPlay();
+//   score = 0;
+// });
 
 // Run game
 playBtn.addEventListener('click', runGame);
