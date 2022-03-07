@@ -3,6 +3,7 @@
 //          GLOBAL CONSTS         //
 // homepage
 const homepageModal = document.querySelector('.js-homepageModal');
+const title = document.querySelector('.js-title');
 const startBtn = document.querySelector('.js-startBtn');
 
 // transition homepage to gamepage
@@ -11,6 +12,7 @@ const countDownParagraph = document.querySelector('.js-countDown');
 
 // gamepage
 const gamePage = document.querySelector('.js-gamePage');
+const logo = document.querySelector('.js-logo');
 const timeLeftParagraph = document.querySelector('.js-timeLeft');
 const scoreParagraph = document.querySelector('.js-score');
 const playBtn = document.querySelector('.js-playBtn');
@@ -31,6 +33,7 @@ const resumeGameBtn = document.querySelector('.js-resumeGameBtn');
 const gameOverModal = document.querySelector('.js-gameOverModal');
 const finalScore = document.querySelector('.js-finalScore');
 const playAgainBtn = document.querySelector('.js-playAgainBtn');
+const exitBtn = document.querySelector('.js-exitBtn');
 
 
 let timeLeft = 20;
@@ -111,6 +114,7 @@ const runGame = () => {
 let countdown = 3;
 const countdownToPlay = () => {
   homepageModal.classList.add('hidden');
+  title.classList.add('hidden');
   countDownParagraph.classList.remove('hidden');
   // countdown = sec;
 
@@ -120,6 +124,7 @@ const countdownToPlay = () => {
   } else {
     countDownPage.classList.add('hidden');
     gamePage.classList.remove('hidden');
+    logo.classList.remove('hidden');
     runGame();
   }
 };
@@ -155,6 +160,12 @@ const resumeGame = () => {
   runGame();
 };
 
+// Exit game
+const exitGame = () => {
+  homepageModal.classList.remove('hidden');
+  gamePage.classList.add('hidden');
+};
+
 //       LISTENERS       //
 // Start game
 startBtn.addEventListener('click', () => {
@@ -176,6 +187,9 @@ resumeGameBtn.addEventListener('click', resumeGame);
 
 // Play again
 playAgainBtn.addEventListener('click', playAgain);
+
+// Exit game
+exitBtn.addEventListener('click', exitGame);
 
 
 //           MOVE CURSOR          //
