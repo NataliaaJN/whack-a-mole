@@ -46,6 +46,22 @@ let misses = 0;
 //     return getRandomHole(); // execute the function to get other hole (different from the last one)
 //   }
 
+// Get the time left
+const getTimeLeft = () => {
+  if (timeLeft > 0) {
+    timeLeft--;
+    timeLeftParagraph.innerHTML = timeLeft;
+  }
+};
+
+// Update score
+const updateScore = () => {
+  score += 10;
+  console.log(score);
+  scoreParagraph.innerHTML = score;
+};
+
+// Get random number
 const getRandomNumber = (max) => {
   return Math.ceil(Math.random() * max);
 };
@@ -57,25 +73,15 @@ const getRandomMole = () => {
   mole = moles[moleIndex];
   //return hole? para poder sacar lo demás a otra función
   mole.classList.add('popUp');
-  
-  mole.addEventListener('click', () =>{
-    score += 10;
-    console.log(score);
-    scoreParagraph.innerHTML = score;
-  });
+
+  mole.addEventListener('click', updateScore);
 
   setTimeout(() => {
     mole.classList.remove('popUp');
   }, 1100);
 };
 
-// Get the time left
-const getTimeLeft = () => {
-  if (timeLeft > 0) {
-    timeLeft--;
-    timeLeftParagraph.innerHTML = timeLeft;
-  }
-};
+
 
 // Game over
 const gameOver = () => {
@@ -123,6 +129,7 @@ const playAgain = () => {
   gameOverModal.classList.add('hidden');
   timeLeft = 20;
   score = 0;
+  scoreParagraph.innerHTML = score;
   //setInterval(countdownToPlay, 1000);
   countdownToPlay();
 };
