@@ -20,18 +20,17 @@
 
     <body>
         <header>
-            
             <div class="logoContainer">
                 <img
                     class="logoContainer__logo hidden js-logo"
-                    src="./assets/images/logo.jpg"
+                    src="./assets/images/logo.png"
                     alt=""
                 />
             </div>
         </header>
-        <main>
-          <section class="homepageModal js-homepageModal">
-              <h1 class="title js-title">WHACK A MOLE</h1>
+        <main class="main">
+            <section class="homepageModal js-homepageModal">
+                <h1 class="title js-title">WHACK A MOLE</h1>
                 <button class="homepageModal__startGameBtn js-startBtn">
                     <i
                         class="homepageModal__startGameBtn--icon fa-regular fa-circle-play"
@@ -50,10 +49,16 @@
                         Score: <span class="js-score">0</span>
                     </h2>
                 </article>
-                <article>
-                    <button class="button playBtn js-playBtn">Play</button>
-                    <button class="button pauseBtn hidden js-pauseBtn">
-                        Pause
+                <article class="gamePage__playBtnsContainer">
+                    <button
+                        class="button gamePage__playBtnsContainer--playBtn js-playBtn"
+                    >
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                    <button
+                        class="button gamePage__playBtnsContainer--pauseBtn hidden js-pauseBtn"
+                    >
+                        <i class="fa-solid fa-pause"></i>
                     </button>
                 </article>
 
@@ -250,7 +255,7 @@
                 <p class="pauseModal__currentTimeLeft">
                     Time left: <span class="js-currentTimeLeft">0</span>
                 </p>
-                <button class="modal__resumeGameBtn js-resumeGameBtn">
+                <button class="pauseModal__resumeGameBtn js-resumeGameBtn">
                     Resume game
                 </button>
             </section>
@@ -263,11 +268,15 @@
                 <!-- <p class="modal__misses">Misses: <span class="js-misses">0</span></p> -->
                 <!-- <p class="modal__highScoreParagraph">High score: <span class="js-highScore">0</span></p> -->
                 <div class="modal__btnsContainer">
-                    <button class="modal__btnsContainer--playAgainBtn js-playAgainBtn">
+                    <button
+                        class="modal__btnsContainer--playAgainBtn js-playAgainBtn"
+                    >
                         Play again
                     </button>
                     <button class="modal__btnsContainer--exitBtn js-exitBtn">
-                        <i class="modal__btnsContainer--exitBtn--exitIcon fa-solid fa-arrow-right-from-bracket"></i>
+                        <i
+                            class="modal__btnsContainer--exitBtn--exitIcon fa-solid fa-arrow-right-from-bracket"
+                        ></i>
                     </button>
                 </div>
             </section>

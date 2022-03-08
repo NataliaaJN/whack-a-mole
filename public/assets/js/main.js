@@ -123,9 +123,9 @@ const getCountdown = () => {
 
 const countdownToPlay = () => {
   title.classList.add('hidden');
-homepageModal.classList.add('hidden');
-countDownParagraph.classList.remove('hidden');
-  
+  homepageModal.classList.add('hidden');
+  countDownParagraph.classList.remove('hidden');
+
   // countdown = sec;
   while(countdown > 0) {
     countDownParagraph.innerHTML = countdown;
